@@ -1,0 +1,28 @@
+@page "/counter"
+
+<h1>Counter</h1>
+
+<p>Current count: @currentCount</p>
+
+@if(@isShown){
+    <button class="btn btn-primary" @onclick="IncrementCount">Count</button>
+} 
+
+<button class="btn btn-primary" @onclick="HideIt"> 
+        @if(@isShown){ <span>Hide</span>} 
+        else { <span>Show</span>} 
+</button>
+
+@code {
+    private int currentCount = 0;
+    private Boolean isShown = true;
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+
+    private void HideIt()
+    {
+        isShown = !isShown;
+    }
+}
